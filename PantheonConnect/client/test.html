@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style-test.css">
+    <link rel="stylesheet" href="./css/magicmouse.css">
+    <title>Webcam Streaming</title>
+    <script src="./js/magicmouse.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+
+</head>
+<body>
+    
+    <h1 id="title">LIVE ASL TRANSLATOR</h1>
+
+    <p id="desc"> Hold up one hand at a time to spell out letters.</p>
+    
+    <label for="cars">Choose a car:</label>
+
+    <select name="Select Language" id="language" class="magic-hover">
+    <option value="English">English</option>
+    <option value="Spanish">Spanish</option>
+    <option value="French">French</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Korean">Korean</option>
+    <option value="German">German</option>
+    <option value="Dutch">Dutch</option>
+
+    </select>
+
+
+    <div class="video-class">
+        <div class="videoInner">
+        <video autoplay="true" id="videoElement" class="magic-hover"></video>
+        </div>
+    </div>
+
+    <div class="slidecontainer">
+        <input type="range" min="10" max="50" value="15" class="slider" id="myRange" onchange="updateSlider()">
+    </div>
+    <div class="value-class">
+        <p id="value">Speed: </p>
+        <script>
+            let textar = document.getElementById('value');
+            let slider = document.getElementById('myRange');
+            function updateSlider() {
+                textar.innerText = "Speed: " + slider.value;
+            }
+            </script>
+        <p id="value-desc">Adjust the speed that symbols are processed depending on the speed you are comfortable with in ASL</p>
+    </div>
+    
+    <p id="ASL"></p>
+
+
+    <script type="module" src="./js/videoport.js"></script>
+    <script>
+        options = {
+        "cursorOuter": "circle-basic",
+        "hoverEffect": "circle-move",
+        "hoverItemMove": false,
+        "defaultCursor": false,
+        "outerWidth": 30,
+        "outerHeight": 30
+            };
+          magicMouse(options);
+        </script>
+
+         <!-- GSAP ANIMATIONS-->
+        <script>
+        const tl = gsap.timeline({});
+        tl.to('#title', { 'opacity': '1', ease: "power4.inOut", duration: 1.5});
+        tl.from('#title', { 'y': '+=200', ease: "expo.out", duration: 1.5}, "<");
+
+        tl.to('#desc', { 'opacity': '1', ease: "power4.inOut", duration: 1.5}, "<0.5");
+        tl.from('#desc', { 'y': '+=200', ease: "expo.out", duration: 1.5}, "<");
+        
+        </script>
+      
+</body>
+
+
+</html>

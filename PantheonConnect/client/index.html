@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html id="*" lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/loader.css">
+  <link rel="stylesheet" href="./css/magicmouse.css">
+  <script src="./js/jquery.js"></script>
+
+</head>
+
+<body>
+  <div class="loader-wrapper-outer">
+      <span class="loader-wrapper">
+        <div class="loader">
+        <img src="PC_logo_light.svg"/>
+        </div>
+      </span>
+  </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CSSRulePlugin.min.js"
+      integrity="sha512-IxxYrSNXnt/RJlxNX40+7BQL88FLqvdpVpuV9AuvpNH/NFP0L8xA8WLxWTXx6PYExB5R/ktQisp6tIrnLn8xvw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <div class="titles">
+      <h1 id="title" class="theTitle">PANTHEON</h1>
+      <div class="outerDotsContainer">
+      <div class="dotsContainer">
+        <span id="dotC1-1" class="dots"></span>
+        <span id="dotC1-2" class="dots"></span>
+        <!---<span id="dotC1-3" class="dots"></span>-->
+        <span id="dotC1-4" class="dots"></span>
+
+        <span id="dotO1-1" class="dots"></span>
+        <span id="dotO1-2" class="dots"></span>
+        <span id="dotO1-3" class="dots"></span>
+        <span id="dotO1-4" class="dots"></span>
+
+        <span id="dotN1-1" class="dots"></span>
+        <span id="dotN1-2" class="dots"></span>
+        <span id="dotN1-3" class="dots"></span>
+        <span id="dotN1-4" class="dots"></span>
+
+        <span id="dotN2-1" class="dots"></span>
+        <span id="dotN2-2" class="dots"></span>
+        <span id="dotN2-3" class="dots"></span>
+        <span id="dotN2-4" class="dots"></span>
+
+        <span id="dotE1-1" class="dots"></span>
+        <span id="dotE1-2" class="dots"></span>
+        <span id="dotE1-3" class="dots"></span>
+        <span id="dotE1-4" class="dots"></span>
+
+        <span id="dotC2-1" class="dots"></span>
+        <span id="dotC2-2" class="dots"></span>
+        <span id="dotC2-3" class="dots"></span>
+        <span id="dotC2-4" class="dots"></span>
+
+        <span id="dotT1-1" class="dots"></span>
+        <span id="dotT1-2" class="dots"></span>
+        <!---<span id="dotT1-3" class="dots"></span>-->
+        <span id="dotT1-4" class="dots"></span>
+      </div>
+    </div>
+
+      
+    </div>
+    <div class="centerContainer">
+      <div class="buttonContainer2">
+      <a class="button2 magic-hover" href="/record" style="--color:#82eaff; --glow: #1a6693; --glow2: #393939;">
+        Try it out
+        </a>
+        </div>
+    </div>
+    <div class="buttonContainer">
+      <a class="button magic-hover" href="/client/test.html" style="--color:#82eaff; --glow: #1a6693; --glow2: #393939;">
+      Translate with Webcam Now
+      </a>
+    </div>
+    
+
+    <div class="centerContainer2">
+      <h1 id="ourprojects">OUR PROJECTS</h1>
+      <img id="arrow" src="arrow.png" alt="[ARROW]">
+  </div>
+
+  <div class="hitboxContainer">
+    <div id="hitbox1"></div>
+  </div>
+
+  <div class="hitboxContainer2">
+    <div id="hitbox2"></div>
+  </div>
+  
+  <div class="img-class">
+    <img id="projImg" src="placeholderImg.png" alt="[IMG]"/>
+  </div>
+  
+    <div class="descContainer">
+      <div id="proj1">ASL Live Translator</div>
+      <div id="desc">This tool allows you to enter ASL letters and translate them into text and different languages. Try it out below!</div>
+    </div>
+
+    <div class="descContainer2">
+      <div id="proj2">AR/VR ASL Translator</div>
+      <div id="desc2">This tool allows you to enter ASL letters and display it as text in AR/VR. In the future we will also implement support for multiple user communication all in AR/VR.</div>
+    </div>
+
+    <div class="img-class2">
+      <img id="projImg2" src="IMG2.png" alt="[IMG]"/>
+    </div>
+
+    <div class="buttonContainer3">
+      <a class="button magic-hover" href="/client/index3D.html" style="--color:#82eaff; --glow: #1a6693; --glow2: #393939;">
+      Translate with your VR Headset Now
+      </a>
+    </div>
+  
+
+
+  
+
+  <div id="rect1"></div>
+  <!-- GSAP ANIMATIONS-->
+
+  <script>
+    
+    $(window).on("load", function () {
+      $(".loader-wrapper").delay(1000).fadeOut("slow");
+      $(".loader-wrapper-outer").delay(1000).fadeOut("slow");
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.centerContainer2', {scrollTrigger: {
+      trigger: '#hitbox1',
+    }, opacity: '1', ease: "power4.inOut", duration: 0.7});
+
+
+    gsap.to('#proj1', {scrollTrigger: {
+      trigger: '#hitbox1',
+
+    }, y:'-600px', ease: "expo.out", duration: 2});
+
+    gsap.to('#desc', {scrollTrigger: {
+      trigger: '#hitbox1',
+
+    }, y:'-600px', ease: "expo.out", duration: 2, delay: 0.3}, 1.0);
+
+    gsap.to('#proj2', {scrollTrigger: {
+      trigger: '#hitbox2',
+
+    }, y:'-600px', ease: "expo.out", duration: 2});
+
+    gsap.to('#desc2', {scrollTrigger: {
+      trigger: '#hitbox2',
+
+    }, y:'-600px', ease: "expo.out", duration: 2, delay: 0.3}, 1.0);
+
+
+    const tl = gsap.timeline({});
+
+    tl.to('.loader', { 'opacity': '1', filter: "blur(0px)", ease: "power4.inOut", duration: 0.7}, "-=1.0");
+    tl.from('.loader', { 'y': '+=200', ease: "expo.out", duration: 1.5}, "-=1.0");
+    
+    tl.delay(1)
+      .from('.theTitle', { 'top': '250px', ease: "expo.out", duration: 1.0 })
+      .to('.theTitle', { 'opacity': '1', ease: "power4.inOut", duration: 2.0 }, "-=1.4")
+
+      /*.from('h2', { 'top': '730px', ease: "expo.out", duration: 1.0 }, "<+0.2")
+      .to('h2', { 'opacity': '1', ease: "power4.inOut", duration: 1.5 }, "<")*/
+
+      .to('.dots', {y:'10px', overwrite: "none", ease: "expo.out", duration: 1.5}, "<+0.2")
+      .to('.dots', { 'opacity': '1', ease: "power4.inOut", duration: 1.5}, "<")
+
+      
+      .to('#ourprojects', { 'bottom': '90px', ease: "expo.out", duration: 1.0 }, "<+0.4")
+      .from('#arrow', { 'bottom': '-200px', ease: "expo.out", duration: 1.5 }, "<")
+      .to('.centerContainer2', { 'opacity': '1', ease: "power4.inOut", duration: 1.5 }, "<")
+      
+    });
+    
+    
+
+
+  </script>
+  <div id="glow"></div>
+
+
+  <script src="./js/magicmouse.js"></script>
+<script>
+options = {
+"cursorOuter": "circle-basic",
+"hoverEffect": "circle-move",
+"hoverItemMove": false,
+"defaultCursor": false,
+"outerWidth": 30,
+"outerHeight": 30
+    };
+  magicMouse(options);
+</script>
+
+  <canvas id="canvas"> </canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+  <script id="mouse" src="./js/mouse.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style3D.css">
+        <title>AR/VR ASL Detection</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+        
+        
+        <script type="importmap">
+            {
+              "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+              }
+            }
+          </script>
+    
+    </head>
+
+    <body>
+        <h1 id="title">AR/VR ASL Detection</h1>
+    
+        <p id="desc">Bring live ASL translation to the 3rd dimension through our AR/VR tool.</p>
+
+        <div class="video-class">
+            <iframe 
+                id="videoFeed"
+                width="600"
+                height="400"
+                src="https://www.oculus.com/casting/">
+            </iframe>
+        </div>
+
+        <div class="cube1-class">
+            <img id="cube1" src ="3dAssets/longCube.png"/>
+        </div>
+        <div class="glow1-class">
+            <div id="glow1"></div>
+        </div>
+
+        <div class="cube2-class">
+            <img id="cube2" src ="3dAssets/longCube.png"/>
+        </div>
+        <div class="glow2-class">
+            <div id="glow2"></div>
+        </div>
+
+        <div class="cube3-class">
+            <img id="cube3" src ="3dAssets/longerCube.png"/>
+        </div>
+        <div class="glow3-class">
+            <div id="glow3"></div>
+        </div>
+
+
+        <p id="language">Choose a language:</p>
+
+        <select name="Select Language" id="language">
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="German">German</option>
+        <option value="Dutch">Dutch</option>
+
+        </select>
+        
+    
+        <script>
+            const tl = gsap.timeline({});
+      
+            tl.to('#title', { 'opacity': '1', ease: "power4.inOut", duration: 1.5});
+            tl.from('#title', { 'y': '+=200', ease: "expo.out", duration: 1.5}, "<");
+
+            tl.to('#desc', { 'opacity': '1', ease: "power4.inOut", duration: 1.5}, "<0.5");
+            tl.from('#desc', { 'y': '+=200', ease: "expo.out", duration: 1.5}, "<");
+            
+            tl.to("#cube1", { 'opacity': 1, filter: "blur(0px)", ease: "expo.out", duration: 1.3}, "<");
+            tl.to("#glow1", { 'opacity': 0.7, ease: "power4.inOut", duration: 0.7}, "<");
+
+            tl.to("#cube1", { "y": "+=50", "x": "-=50", ease: "expo.out", duration: 1.5}, "<");
+            tl.to("#glow1", { "y": "+=50", "x": "-=50", ease: "expo.out", duration: 1.5}, "<");
+
+            tl.to("#cube2", { 'opacity': 1, filter: "blur(0px)", ease: "expo.out", duration: 1.3}, "<0.2");
+            tl.to("#glow2", { 'opacity': 0.7, ease: "power4.inOut", duration: 1.3}, "<");
+
+            tl.to("#cube2", { "y": "+=100", "x": "-=100", ease: "expo.out", duration: 1.5}, "<");
+            tl.to("#glow2", { "y": "+=100", "x": "-=100", ease: "expo.out", duration: 1.5}, "<");
+
+            tl.to("#cube3", { 'opacity': 1, filter: "blur(0px)", ease: "expo.out", duration: 1.3}, "<0.3");
+            tl.to("#glow3", { 'opacity': 0.7, ease: "power4.inOut", duration: 1.3}, "<");
+
+            tl.to("#cube3", { "y": "+=100", "x": "-=100", ease: "expo.out", duration: 1.5}, "<");
+            tl.to("#glow3", { "y": "+=100", "x": "-=100", ease: "expo.out", duration: 1.5}, "<");
+        </script>
+    
+    </body>
+    
+</html>
+
